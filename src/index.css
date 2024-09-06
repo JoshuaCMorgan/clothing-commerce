@@ -53,11 +53,12 @@
   /* --backgroundColor: var(--grey-50); */
   --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
+  --borderRadiusLarge: 0.5rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 600px;
-  --fluid-width: 90vw;
+  --fluid-width: 70%;
   /* box shadow*/
   --text-shadow: 0 0 4px rgba(35, 34, 34, 0.4);
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -75,7 +76,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#ede1d1, #ebcca4);
+  background: linear-gradient(#ffffff, #f8f4ef);
   color: #f3e7d4;
   min-height: 100vh;
   font-weight: 400;
@@ -88,6 +89,20 @@ h1 {
   font-size: 2.5rem;
   color: var(--primary-600);
   text-shadow: var(--text-shadow);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--secondary-600);
+  text-transform: uppercase;
+  margin: 1.1rem 0;
+}
+
+.product img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  border-radius: var(--borderRadiusLarge);
 }
 
 #main-header {
@@ -110,7 +125,7 @@ h1 {
 .btn {
   width: 100%;
   cursor: pointer;
-  color: var(--secondary-100);
+  color: var(--secondary-050);
   background: var(--primary-600);
   padding-left: 1.255rem;
   border: transparent;
@@ -126,4 +141,66 @@ h1 {
 .btn:hover {
   background: var(--primary-800);
   color: var(--secondary-200);
+}
+
+.shop-container {
+  width: var(--fluid-width);
+  margin: 2rem auto;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.product {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-050);
+  border-radius: var(--borderRadiusLarge);
+  box-shadow: 0 -3px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.product-title {
+  color: var(--secondary-600);
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.15rem;
+}
+
+.product-description {
+  color: var(--secondary-900);
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 1rem 0.5rem 1rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-600);
+  margin: 0;
+}
+
+.product-actions {
+  text-align: right;
+  margin: 1rem 0;
+}
+
+.product-actions .btn {
+  width: auto;
+  font-size: 1rem;
 }
