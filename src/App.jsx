@@ -7,13 +7,13 @@ import "./index.css";
 
 await loader();
 const products = getLocalStorageProducts().slice(0, 10);
-console.log(products);
 
 function App() {
   const [shoppingCart, setShoppingCart] = useState({ items: [] });
-  /*
-id, price, title, description,
-*/
+
+  function handleUpdateCartItemsQuantity(id) {
+    console.log(id);
+  }
   function handleAddItemToCart(id) {
     setShoppingCart((previousShoppingCart) => {
       const updatedItems = [...previousShoppingCart.items];
@@ -45,7 +45,10 @@ id, price, title, description,
 
   return (
     <>
-      <Header cart={shoppingCart}></Header>
+      <Header
+        cart={shoppingCart}
+        onUpdateCartItemsQuantity={handleUpdateCartItemsQuantity}
+      ></Header>
       <Shop>
         {products.map((product) => {
           return (
