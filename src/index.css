@@ -97,6 +97,11 @@ h2 {
   margin: 1.1rem 0;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .product img {
   width: 100%;
   display: block;
@@ -152,6 +157,12 @@ h2 {
   padding: 0.5rem 1rem;
 }
 
+#modal form button:last-of-type:hover {
+  color: var(--secondary-100);
+  background: var(--primary-700);
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
 .btn-clear {
   background: unset;
 }
@@ -229,6 +240,8 @@ h2 {
   border: none;
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: 0.3s ease-in-out;
+
   animation: fade-slide-in-from-top 0.3s ease-in-out;
 }
 
@@ -246,4 +259,62 @@ h2 {
 #cart-total {
   margin: 1rem 0;
   text-align: right;
+}
+
+#cart-items {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--secondary-200);
+  padding: 0.75rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-1);
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.cart-item-actions button {
+  background: transparent;
+  border: none;
+  border-radius: var(--borderRadius);
+  padding: 0.5rem;
+  font-size: large;
+}
+
+.cart-item-actions button:hover {
+  background: var(--primary-500);
+}
+
+@keyframes fade-slide-in-from-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-slide-in-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

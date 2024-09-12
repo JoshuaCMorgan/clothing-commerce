@@ -11,9 +11,29 @@ const products = getLocalStorageProducts().slice(0, 10);
 function App() {
   const [shoppingCart, setShoppingCart] = useState({ items: [] });
 
-  function handleUpdateCartItemsQuantity(id) {
-    console.log(id);
+  function handleUpdateCartItemsQuantity(productId, amount) {
+    setShoppingCart((previousShoppingCart) => {
+      const updatedItems = [...previousShoppingCart.items];
+
+      const updatedItemIndex = updatedItems.findIndex((item) => {
+        return item.id === productId;
+      });
+
+      const updatedItem = { ...updatedItems[updatedItemIndex] };
+      console.log({ updatedItem });
+
+      updatedItem.quantity += amount;
+
+      if (updatedItem.quantity <= 0) {
+        updatedItems.splice(updatedItemIndex, 1);
+      } else {
+        updatedItems[updatedItemIndex] = updatedItem;
+      }
+
+      return { items: updatedItems };
+    });
   }
+
   function handleAddItemToCart(id) {
     setShoppingCart((previousShoppingCart) => {
       const updatedItems = [...previousShoppingCart.items];
