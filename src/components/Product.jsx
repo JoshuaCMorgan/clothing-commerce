@@ -1,5 +1,8 @@
 import React from "react";
-export function Product({ image, title, price, description, onAddToCart, id }) {
+import { useCartContext } from "../store/shopping-cart-context";
+export function Product({ image, title, price, description, id }) {
+  const { addItemToCart } = useCartContext();
+
   return (
     <article className="product">
       <img src={image} />
@@ -10,7 +13,7 @@ export function Product({ image, title, price, description, onAddToCart, id }) {
           <p className="product-description">{description}</p>
         </div>
         <p className="product-actions">
-          <button className="btn" onClick={() => onAddToCart(id)}>
+          <button className="btn" onClick={() => addItemToCart(id)}>
             Add to Cart
           </button>
         </p>

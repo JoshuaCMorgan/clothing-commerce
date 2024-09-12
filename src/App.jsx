@@ -3,8 +3,7 @@ import { loader, getLocalStorageProducts } from "./utils/storage";
 import Header from "./components/Header";
 import { Product } from "./components/Product";
 import Shop from "./components/Shop";
-import "./index.css";
-
+import { CartContext } from "./store/shopping-cart-context";
 await loader();
 const products = getLocalStorageProducts().slice(0, 10);
 
@@ -20,7 +19,6 @@ function App() {
       });
 
       const updatedItem = { ...updatedItems[updatedItemIndex] };
-      console.log({ updatedItem });
 
       updatedItem.quantity += amount;
 
@@ -63,22 +61,25 @@ function App() {
     });
   }
 
+  const contextValue = {
+    items: shoppingCart.items,
+    addItemToCart: handleAddItemToCart,
+    updateItemsQuantity: handleUpdateCartItemsQuantity,
+  };
+
   return (
-    <>
-      <Header
-        cart={shoppingCart}
-        onUpdateCartItemsQuantity={handleUpdateCartItemsQuantity}
-      ></Header>
+    <CartContext.Provider value={contextValue}>
+      <Header />
       <Shop>
         {products.map((product) => {
           return (
             <li key={product.id}>
-              <Product {...product} onAddToCart={handleAddItemToCart} />;
+              <Product {...product} />;
             </li>
           );
         })}
       </Shop>
-    </>
+    </CartContext.Provider>
   );
 }
 

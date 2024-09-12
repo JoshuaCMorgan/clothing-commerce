@@ -1,11 +1,10 @@
 import { useRef } from "react";
 import CartModal from "./CartModal";
-
-function Header({ cart, onUpdateCartItemsQuantity }) {
+import { useCartContext } from "../store/shopping-cart-context";
+function Header() {
   const modal = useRef();
-  console.log({ cart });
-
-  const cartQuantity = cart.items.length;
+  const { items } = useCartContext();
+  const cartQuantity = items.length;
 
   let modalActions = <button>Close</button>;
 
@@ -23,13 +22,7 @@ function Header({ cart, onUpdateCartItemsQuantity }) {
   }
   return (
     <>
-      <CartModal
-        ref={modal}
-        title="Your Cart"
-        cartItems={cart.items}
-        onUpdateCartItemQuantity={onUpdateCartItemsQuantity}
-        actions={modalActions}
-      />
+      <CartModal ref={modal} title="Your Cart" actions={modalActions} />
       <header id="main-header">
         <div id="main-title">
           <img src="logo.svg" alt="products logo" />
