@@ -7,10 +7,13 @@
 ## Images
 
 Home Page
-https://github.com/JoshuaCMorgan/clothing-commerce/blob/03c096e5cadf22016bb7ff6fb7a8d84a860e4d99/public/shop.png
+</br>
+<img width="899" alt="shop" src="https://github.com/user-attachments/assets/15b4fb26-2824-4ea0-a674-8e4e5ca22522">
 
 Cart
-https://github.com/JoshuaCMorgan/clothing-commerce/blob/03c096e5cadf22016bb7ff6fb7a8d84a860e4d99/public/cart.png
+</br>
+<img width="863" alt="cart" src="https://github.com/user-attachments/assets/8e4ef0f8-87ed-40a7-9b92-35b9ef35f723">
+
 
 ## Features
 
