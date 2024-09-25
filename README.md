@@ -26,3 +26,5 @@ Cart
   - Context API
     - https://github.com/JoshuaCMorgan/clothing-commerce/blob/ea2e6df0c49130c30aafcd39f796b0525bc96842/src/store/shopping-cart-context.jsx#L12
     - https://github.com/JoshuaCMorgan/clothing-commerce/blob/ea2e6df0c49130c30aafcd39f796b0525bc96842/src/App.jsx#L10
+  - useReducer
+    - https://github.com/JoshuaCMorgan/clothing-commerce/blob/a0adc3a05000712f1f033b24458cd6bc558cb68b/src/store/shopping-cart-context.jsx#L12
