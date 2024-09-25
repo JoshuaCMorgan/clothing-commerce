@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useReducer } from "react";
 import { getLocalStorageProducts } from "../utils/storage";
 
 const products = getLocalStorageProducts().slice(0, 10);
@@ -9,8 +9,15 @@ export const CartContext = createContext({
   updateItemsQuantity: () => {},
 });
 
+function shoppingCartReducer(state, action) {
+  return state;
+}
+
 export default function CartContextProvider({ children }) {
-  const [shoppingCart, setShoppingCart] = useState({ items: [] });
+  const [shoppingCartState, ShoppingCartDispatch] = useReducer(
+    shoppingCartReducer,
+    { items: [] }
+  );
 
   function handleUpdateCartItemsQuantity(productId, amount) {
     setShoppingCart((previousShoppingCart) => {
@@ -64,7 +71,7 @@ export default function CartContextProvider({ children }) {
   }
 
   const contextValue = {
-    items: shoppingCart.items,
+    items: shoppingCartState.items,
     addItemToCart: handleAddItemToCart,
     updateItemsQuantity: handleUpdateCartItemsQuantity,
   };
